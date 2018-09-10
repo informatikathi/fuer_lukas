@@ -1,5 +1,5 @@
 library(xlsx)
-
+library(stm)
 
 labelTopics_xlsx <- function(model, n) {
 
@@ -16,6 +16,4 @@ labelTopics_xlsx <- function(model, n) {
   }
   colnames(df) <- c("Prob", "frex", "lift", "score")
   write.xlsx(df, paste0("Topics_k_",length(topics$topicnums),".xlsx"))
-
-
 }
