@@ -76,6 +76,10 @@ load_data <- function(path, json_col){
 
 data = load_data("data_fuer_lukas.feather", "export_to_r")
 
+colnames(data$meta)
+
+out <- prepDocuments(data$documents, data$vocab, data$meta, lower.thresh = 3) # default: lower.thresh=1 (words in only 1 doc will be dropped)
+
 k_cand_grob <- c(40,50,60,70,80,90,100,110) 
 
 for(k in k_cand_grob){
@@ -92,10 +96,6 @@ for(k in k_cand_grob){
   save.image()
   gc()
 }
-
-colnames(data$meta)
-
-out <- prepDocuments(data$documents, data$vocab, data$meta, lower.thresh = 3) # default: lower.thresh=1 (words in only 1 doc will be dropped)
 
 k_cand_fein <- c(75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90)
 
