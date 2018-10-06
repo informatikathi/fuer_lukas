@@ -131,4 +131,4 @@ dev.off()
 pdf("top_ten_alt.pdf")
 plot(model,type="summary",custom.labels="",topic.names=topicNames,topics=top_ten,main="Top 10 Topics")
 dev.off()
-#beide geben als Output einen Plot mit Topicnummer 1-10 ¯\_(???)_/¯ 
+#beide geben als Output einen Plot mit Topicnummer 1-10 
