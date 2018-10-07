@@ -116,12 +116,14 @@ dev.off()
 
 topicNames<-c("Kirche","Antisemitismus","Betreuungsgeld","[noise]","Außenpolitik","*Literatur",
               "*Theater","abgehängtes_Pekariat","US-Wahlen","*Kino","*Kultur","Finanzpolitik",
-              "Bildungsungleichheiten","USA_Rassismus","soz_Ungleichheit","[noise]","Ernährung",
+              "Bildungsungleichheiten","USA_Rassismus","Erwerbslosigkeit","[noise]","Ernährung",
               "Theorie","Straftaten","Asien", "Parteipolitik", "Erziehung", "*TV", "[noise]", 
               "GB", "*Rap", "Brasilien-WM", "*Unterhaltung", "Kindesmissbrauch", "Nahost",
               "Sarrazin", "[noise]", "Stadt", "[noise]", "[noise]" )
 
-#Das sind meine Top10Topics, die ich gerne in so einem Plot hätte
+
+
+###Top10Topics###
 top_ten <- c(32,8,13,21,15,34,10,7,6,26)
 
 topic_labels = vector()
@@ -129,11 +131,21 @@ for (i in 1:length(top_ten)) {
   topic_labels[i] = topicNames[top_ten[i]]
 }
 
-pdf("top_ten.pdf") 
+print(topic_labels)
+
+pdf("top_ten_topics.pdf") 
 plot.STM(model,type="summary",custom.labels="",topics=top_ten,topic.names=topic_labels, main="Top 10 Topics")
 dev.off()
 
-pdf("top_ten_alt.pdf")
-plot(model,type="summary",custom.labels="",topic.names=topicNames,topics=top_ten,main="Top 10 Topics")
+###neue Unterschicht Topics###
+neue_unterschicht <- c(8, 13, 15, 12, 31, 17, 18)
+
+nu_topic_labels = vector()
+for (i in 1:length(neue_unterschicht)) {
+  nu_topic_labels[i] = topicNames[neue_unterschicht[i]]
+}
+print(nu_topic_labels)
+
+pdf("n_u_topics.pdf") 
+plot.STM(model,type="summary",custom.labels="",topics=neue_unterschicht,topic.names=nu_topic_labels, main="neue Unterschicht Topics")
 dev.off()
-#beide geben als Output einen Plot mit Topicnummer 1-10 
