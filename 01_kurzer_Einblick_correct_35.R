@@ -124,8 +124,13 @@ topicNames<-c("Kirche","Antisemitismus","Betreuungsgeld","[noise]","Außenpolitik
 #Das sind meine Top10Topics, die ich gerne in so einem Plot hätte
 top_ten <- c(32,8,13,21,15,34,10,7,6,26)
 
+topic_labels = vector()
+for (i in 1:length(top_ten)) {
+  topic_labels[i] = topicNames[top_ten[i]]
+}
+
 pdf("top_ten.pdf") 
-plot.STM(model,type="summary",custom.labels="",topics=top_ten,main="Top 10 Topics")
+plot.STM(model,type="summary",custom.labels="",topics=top_ten,topic.names=topic_labels, main="Top 10 Topics")
 dev.off()
 
 pdf("top_ten_alt.pdf")
